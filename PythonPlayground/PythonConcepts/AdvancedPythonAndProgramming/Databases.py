@@ -1,0 +1,1 @@
+# SQL - is an imperative language. 

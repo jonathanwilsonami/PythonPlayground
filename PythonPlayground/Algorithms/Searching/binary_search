@@ -1,0 +1,29 @@
+# Array should be sorted
+
+# Iterative Binary search O(log(n))
+def binary_search_iter(arr, x):
+    left = 0
+    right = len(arr) - 1
+    while left <= right:
+        mid = left + (right - left) // 2 # Prevent overflow for very large arrays
+        if arr[mid] == x:
+            return(mid)
+        elif arr[mid] > x:
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    return(-1)
+
+# Recursive Binary search O(log(n))
+def binary_search_recursive(arr, x, left, right):
+    if left > right:
+        mid = left + (right - left) // 2
+        if arr[mid] == x:
+            return(mid)
+        elif arr[mid] < x:
+            return(binary_search_recursive(arr, x, mid + 1, right))
+        else:
+            return(binary_search_recursive(arr, x, left, mid - 1))
+
+# Shifted binary search
